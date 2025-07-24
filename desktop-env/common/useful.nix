@@ -6,9 +6,6 @@
   ...
 }:
 {
-  imports = [
-    ./..
-  ];
   environment.systemPackages = with pkgs; [
     xournalpp
     cheese
