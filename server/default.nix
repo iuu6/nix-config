@@ -60,10 +60,6 @@
     openssl
     gnupg
 
-    vlc
-    obs-studio
-    google-chrome
-
     pciutils # lspci
     usbutils # lsusb
     smartmontools # smartctl
@@ -81,7 +77,6 @@
     nil
     nixfmt-classic
     nix-output-monitor
-    
   ];
 
   i18n.supportedLocales = [
