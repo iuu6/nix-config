@@ -65,9 +65,6 @@
     cherry-studio
     zashboard
     praat
-    neo4j
-    v2rayn
-    navicat-premium
   ];
 
   system.stateVersion = "25.05"; # Did you read the comment?
