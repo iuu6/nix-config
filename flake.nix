@@ -17,9 +17,6 @@
           system = "x86_64-linux";     
           modules = with inputs; [
             ./server/aura-latitude-5420
-            ./desktop-env/kde-plasma
-            ./code-editor-env/vscode
-            ./code-editor-env/navicat-premium
 
             # flake-programs-sqlite.nixosModules.programs-sqlite
             # { system.configurationRevision = self.rev or "dirty"; }
