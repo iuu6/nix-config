@@ -57,6 +57,7 @@
     sudo
     vim
     gnutar
+    openssl
 
     vlc
     obs-studio
@@ -79,12 +80,7 @@
     nil
     nixfmt-classic
     nix-output-monitor
-
-    go
-    bun
-    cargo
-    openssl
-    nodejs_24
+    
   ];
 
   i18n.supportedLocales = [
