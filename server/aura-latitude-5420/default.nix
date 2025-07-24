@@ -50,7 +50,6 @@
     xournalpp
     telegram-desktop
     snipaste
-    vscode
     spotify
     _64gram
     _1password-gui
