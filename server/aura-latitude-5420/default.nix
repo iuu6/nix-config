@@ -48,7 +48,6 @@
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    xournalpp
     telegram-desktop
     snipaste
     spotify
@@ -58,7 +57,6 @@
     kdePackages.kleopatra
     gnupg
     syncthing
-    libsForQt5.kamoso
     tsukimi
     onlyoffice-desktopeditors
     cherry-studio
