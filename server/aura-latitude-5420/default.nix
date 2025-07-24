@@ -19,12 +19,6 @@
     initialPassword = "pass";
   };
 
-  programs.clash-verge = {
-    enable = true;
-    package = pkgs.clash-verge-rev;
-    autoStart = false;
-  };
-
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

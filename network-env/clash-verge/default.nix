@@ -14,6 +14,8 @@
     enable = true;
     tunMode = true;
     serviceMode = true;
+    package = pkgs.clash-verge-rev;
+    autoStart = false;
   };
 
   systemd.services.clash-verge = {
