@@ -58,6 +58,7 @@
     vim
     gnutar
     openssl
+    gnupg
 
     vlc
     obs-studio
@@ -72,7 +73,7 @@
 
     htop
     lm_sensors
-    ethtool
+    ethtoolx
     hyfetch
     neofetch
     fastfetch

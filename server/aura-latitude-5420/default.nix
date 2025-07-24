@@ -55,7 +55,6 @@
     _1password-gui
     typora
     kdePackages.kleopatra
-    gnupg
     syncthing
     tsukimi
     onlyoffice-desktopeditors
