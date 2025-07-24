@@ -55,16 +55,13 @@
     _64gram
     _1password-gui
     typora
-    follow
     kdePackages.kleopatra
     gnupg
     syncthing
     libsForQt5.kamoso
-    notion-app-enhanced
     tsukimi
     onlyoffice-desktopeditors
     cherry-studio
-    zashboard
     praat
   ];
 
