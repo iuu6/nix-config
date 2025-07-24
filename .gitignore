@@ -7,3 +7,17 @@ result-*
 
 # Ignore KDE Theme setting
 .directory
+
+# OS
+.DS_Store
+
+# IDEs and editors
+/.idea
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+CLAUDE.md
