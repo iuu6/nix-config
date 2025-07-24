@@ -118,9 +118,13 @@ Stay tuned for more features!
 
 - [x] Desktop Environment
 
-- [ ] Program Environment
+- [x] Program Environment
 
-- [ ] Fixing cluttered configuration files for structure
+- [x] Fixing cluttered configuration files for structure
+
+- [ ] Better user management
+
+- [ ] Better disks management
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
