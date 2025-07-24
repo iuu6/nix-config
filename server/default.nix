@@ -85,7 +85,6 @@
     cargo
     openssl
     nodejs_24
-    github-desktop
   ];
 
   i18n.supportedLocales = [
