@@ -7,7 +7,7 @@
 }:
 {
   imports = [
-    ./../../../network-env/mihomo
+    # ./../../../network-env/mihomo
     ./../../../network-env/clash-verge
   ];
 }
