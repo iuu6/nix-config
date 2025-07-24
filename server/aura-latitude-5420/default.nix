@@ -29,16 +29,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  systemd.services.clash-verge = {
-    enable = true;
-    description = "Clash Verge Service Mode";
-    serviceConfig = {
-      ExecStart = "${config.programs.clash-verge.package}/bin/clash-verge-service";
-      Restart = "on-failure";
-    };
-    wantedBy = ["multi-user.target"];
-  };
-
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play

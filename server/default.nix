@@ -69,7 +69,7 @@
 
     htop
     lm_sensors
-    ethtoolx
+    ethtool
     hyfetch
     neofetch
     fastfetch
