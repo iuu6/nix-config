@@ -7,8 +7,6 @@
 }:
 {
   imports = [
-    ./code-editor-env.nix
-    ./desktop-env.nix
-    ./compiler-env.nix
+    ./../../../compiler-env/python313
   ];
 }
