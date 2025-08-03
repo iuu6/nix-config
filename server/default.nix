@@ -63,6 +63,7 @@
     pciutils # lspci
     usbutils # lsusb
     smartmontools # smartctl
+    tree #tree
 
     nmap
     qemu_full
