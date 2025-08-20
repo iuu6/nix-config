@@ -9,5 +9,6 @@
   imports = [
     # ./../../../network-env/mihomo
     ./../../../network-env/clash-verge
+    ./../../../network-env/nekoray
   ];
 }

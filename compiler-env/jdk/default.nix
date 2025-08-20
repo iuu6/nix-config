@@ -7,7 +7,9 @@
 }:
 {
   imports = [
-    ./../../../desktop-env/kde-plasma
-    ./../../../desktop-env/niri
+    ./..
+  ];
+  environment.systemPackages = with pkgs; [
+    jdk23
   ];
 }

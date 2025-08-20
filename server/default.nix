@@ -24,6 +24,8 @@
     "flakes"
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 
