@@ -11,6 +11,7 @@
     ./../../../compiler-env/javascript
     ./../../../compiler-env/golang
     ./../../../compiler-env/rust
+    ./../../../compiler-env/gcc
     ./../../../compiler-env/jdk
   ];
 }

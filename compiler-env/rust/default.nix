@@ -9,5 +9,5 @@
   imports = [
     ./..
   ];
-  environment.systemPackages = with pkgs; [ cargo ];
+  environment.systemPackages = with pkgs; [ rustup ];
 }

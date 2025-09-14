@@ -8,7 +8,7 @@
 }: 
 {
   imports = [
-    ../hardware/wireless/bluetooth
+    ./../hardware-env/wireless/bluetooth
   ];
   nix.settings.substituters = [
     # "https://mirrors.ustc.edu.cn/nix-channels/store"
@@ -56,6 +56,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  programs.nix-ld.enable = true;
+
   environment.systemPackages = with pkgs; [
     # base system
     git
@@ -71,6 +73,7 @@
     usbutils # lsusb
     smartmontools # smartctl
     tree #tree
+    inetutils #telnet
 
     nmap
     qemu_full

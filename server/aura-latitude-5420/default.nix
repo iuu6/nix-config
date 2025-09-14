@@ -6,11 +6,13 @@
       ./hardware-configuration.nix
       ./env
       ./..
+      ./../../hardware-env/removable/proxmark3
     ];
   
   networking.hostName = "aura-latitude-5420";
 
   # nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
+  services.pcscd.enable = true;
 
   users.users.aura = {
     isNormalUser = true;
@@ -47,7 +49,12 @@
     nixos-anywhere
     geogebra
     remmina
+    openwebrx
+    (callPackage ./../../packages/robrix/package.nix { })
   ];
+
+  services.openwebrx.enable = true;
+  hardware.rtl-sdr.enable = true;
 
   system.stateVersion = "25.05"; # Did you read the comment?
 
