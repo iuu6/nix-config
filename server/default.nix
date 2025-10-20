@@ -79,6 +79,7 @@
     qemu_full
 
     htop
+    btop
     lm_sensors
     ethtool
     hyfetch
