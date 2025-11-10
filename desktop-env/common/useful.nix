@@ -12,5 +12,6 @@
     vlc
     obs-studio
     google-chrome
+    electron-chromedriver
   ];
 }

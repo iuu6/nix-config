@@ -7,6 +7,6 @@
 }:
 {
   imports = [
-    ./common/claude
   ];
+  environment.systemPackages = with pkgs; [ claude-code ];
 }

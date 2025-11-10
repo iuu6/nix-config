@@ -50,6 +50,7 @@
     geogebra
     remmina
     openwebrx
+    bitwarden-desktop
     (callPackage ./../../packages/robrix/package.nix { })
   ];
 

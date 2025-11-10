@@ -9,5 +9,9 @@
   imports = [
     ./..
   ];
-  environment.systemPackages = with pkgs; [ rustup ];
+  environment.systemPackages = with pkgs; [
+    rustup
+    rustls-libssl
+    openssl.dev
+  ];
 }
