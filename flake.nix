@@ -25,18 +25,6 @@
             inherit inputs;
           };
         };
-        aura-1037u = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";     
-          modules = with inputs; [
-            ./server/aura-1037u
-
-            # flake-programs-sqlite.nixosModules.programs-sqlite
-            # { system.configurationRevision = self.rev or "dirty"; }
-          ];
-          specialArgs = {
-            inherit inputs;
-          };
-        };
       };
     };
 }
