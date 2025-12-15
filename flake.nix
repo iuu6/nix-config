@@ -25,6 +25,18 @@
             inherit inputs;
           };
         };
+        aura-main-server = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";     
+          modules = with inputs; [
+            ./server/aura-main-server
+
+            # flake-programs-sqlite.nixosModules.programs-sqlite
+            # { system.configurationRevision = self.rev or "dirty"; }
+          ];
+          specialArgs = {
+            inherit inputs;
+          };
+        };
       };
     };
 }
