@@ -8,5 +8,8 @@
 {
   imports = [
   ];
-  environment.systemPackages = with pkgs; [ claude-code ];
+  environment.systemPackages = with pkgs; [ 
+    claude-code
+    termius
+  ];
 }
