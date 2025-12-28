@@ -51,6 +51,7 @@
     remmina
     openwebrx
     bitwarden-desktop
+    adoptopenjdk-icedtea-web
     (callPackage ./../../packages/robrix/package.nix { })
   ];
 

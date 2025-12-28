@@ -13,13 +13,6 @@
   # nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
   services.pcscd.enable = true;
 
-  users.users.aura = {
-    isNormalUser = true;
-    description = "aura";
-    extraGroups = ["wheel"];
-    initialPassword = "pass";
-  };
-
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -35,20 +28,15 @@
   environment.systemPackages = with pkgs; [
   ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   # networking.hostName = "nixos"; # Define your hostname.
 
   services.openssh.enable = true;
   services.openssh.passwordAuthentication = true;
   services.openssh.permitRootLogin = "yes";
+  users.users.root.initialPassword = "qwq2330319/..e";
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
-
-  users.users.will.promptInitialPassword = true
 
   # 网卡名称
   networking.interfaces.eno1.ipv4.addresses = [ {
