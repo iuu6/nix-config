@@ -9,5 +9,10 @@
   imports = [
     
   ];
-  environment.systemPackages = with pkgs; [ just ];
+  environment.systemPackages = with pkgs; [
+    just
+    direnv
+    devenv
+    docker
+  ];
 }
