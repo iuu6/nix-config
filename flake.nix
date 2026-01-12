@@ -6,7 +6,7 @@
     "https://cache.nixos.org?priority=10"
   ];
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
   };
 
   outputs =

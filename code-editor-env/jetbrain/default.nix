@@ -9,5 +9,5 @@
   imports = [
     ./..
   ];
-  environment.systemPackages = with pkgs; [ jetbrains.idea-ultimate ];
+  environment.systemPackages = with pkgs; [ jetbrains.idea ];
 }

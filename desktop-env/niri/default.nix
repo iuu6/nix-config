@@ -9,8 +9,7 @@
   imports = [
     ./..
   ];
-  programs.niri = {
-    # Install the packages from nixpkgs
-    enable = true;
-  };
+  programs.niri.enable = true;
+  
+  environment.etc."xdg/niri/config.kdl".source = ./config.kdl;
 }

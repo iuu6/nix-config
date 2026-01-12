@@ -10,6 +10,6 @@
     ./..
   ];
   environment.systemPackages = with pkgs; [
-    jdk23
+    jdk
   ];
 }
