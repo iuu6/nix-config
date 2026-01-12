@@ -35,7 +35,6 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     telegram-desktop
-    snipaste
     spotify
     _64gram
     _1password-gui
@@ -52,7 +51,7 @@
     openwebrx
     bitwarden-desktop
     adoptopenjdk-icedtea-web
-    (callPackage ./../../packages/robrix/package.nix { })
+    # (callPackage ./../../packages/robrix/package.nix { })
   ];
 
   services.openwebrx.enable = true;

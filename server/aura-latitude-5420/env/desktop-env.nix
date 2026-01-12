@@ -8,6 +8,5 @@
 {
   imports = [
     ./../../../desktop-env/kde-plasma
-    ./../../../desktop-env/niri
   ];
 }
