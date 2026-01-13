@@ -101,4 +101,7 @@
   boot.tmp.cleanOnBoot = true;
 
   time.timeZone = "Asia/Shanghai";
+
+  services.timesyncd.enable = true;
+  services.timesyncd.servers = [ "ntp.tencent.com" "ntp1.aliyun.com" "ntp.ntsc.ac.cn" "cn.ntp.org.cn" ];
 }
