@@ -51,6 +51,7 @@
     openwebrx
     bitwarden-desktop
     adoptopenjdk-icedtea-web
+    discord
     # (callPackage ./../../packages/robrix/package.nix { })
   ];
 
