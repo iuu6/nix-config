@@ -9,8 +9,9 @@
   imports = [
     ./..
   ];
-  services.xserver = {
-    enable = true;
-    desktopManager.gnome.enable = true;
-  };
+  services.xserver.enable = true;
+  services.desktopManager.gnome.enable = true;
+
+  # Enable fcitx5 autostart for GNOME
+  services.desktopManager.gnome.sessionPath = [ config.i18n.inputMethod.package ];
 }
