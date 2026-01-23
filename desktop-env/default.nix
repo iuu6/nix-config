@@ -8,8 +8,9 @@
 {
   imports = [
     ./common/font.nix
-    ./common/fcitx5.nix
+    # ./common/fcitx5.nix
     ./common/useful.nix
+    ./common/ibus.nix
   ];
   programs.ssh.enableAskPassword = false;
 }

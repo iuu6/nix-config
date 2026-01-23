@@ -7,6 +7,6 @@
 }:
 {
   imports = [
-    ./../../../desktop-env/kde-plasma
+    ./../../../desktop-env/gnome
   ];
 }
