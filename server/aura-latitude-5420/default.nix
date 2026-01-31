@@ -52,6 +52,7 @@
     bitwarden-desktop
     adoptopenjdk-icedtea-web
     discord
+    parsec-bin
     # (callPackage ./../../packages/robrix/package.nix { })
   ];
 
