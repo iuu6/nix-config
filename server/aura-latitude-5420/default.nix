@@ -53,6 +53,7 @@
     adoptopenjdk-icedtea-web
     discord
     parsec-bin
+    kdePackages.kolourpaint
     # (callPackage ./../../packages/robrix/package.nix { })
   ];
 
