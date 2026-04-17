@@ -74,6 +74,7 @@
     smartmontools # smartctl
     tree #tree
     inetutils #telnet
+    traceroute
 
     nmap
     qemu_full

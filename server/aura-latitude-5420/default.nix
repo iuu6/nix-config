@@ -54,6 +54,7 @@
     discord
     parsec-bin
     kdePackages.kolourpaint
+    winbox4
     # (callPackage ./../../packages/robrix/package.nix { })
   ];
 
