@@ -55,6 +55,9 @@
   services.libinput.enable = true;
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-38.8.4"
+  ];
 
   programs.nix-ld.enable = true;
 
