@@ -11,6 +11,6 @@
     ./../../../code-editor-env/dbeaver/default.nix
     ./../../../code-editor-env/vscode
     ./../../../code-editor-env/github-desktop
-    ./../../../code-editor-env/jetbrain
+    # ./../../../code-editor-env/jetbrain
   ];
 }
