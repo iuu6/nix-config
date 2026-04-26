@@ -12,6 +12,6 @@
     vlc
     obs-studio
     google-chrome
-    electron-chromedriver
+    # electron-chromedriver # 已移除：依赖过期的 electron-38.8.4
   ];
 }
