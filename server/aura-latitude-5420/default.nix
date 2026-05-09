@@ -37,7 +37,6 @@
     telegram-desktop
     spotify
     _64gram
-    _1password-gui
     typora
     kdePackages.kleopatra
     syncthing
@@ -55,6 +54,7 @@
     parsec-bin
     kdePackages.kolourpaint
     winbox4
+    rustdesk
     # (callPackage ./../../packages/robrix/package.nix { })
   ];
 
