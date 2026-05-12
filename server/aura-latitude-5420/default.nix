@@ -55,6 +55,8 @@
     kdePackages.kolourpaint
     winbox4
     rustdesk
+    wireguard-tools
+
     # (callPackage ./../../packages/robrix/package.nix { })
   ];
 
