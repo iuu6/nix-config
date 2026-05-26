@@ -39,7 +39,6 @@
     _64gram
     typora
     kdePackages.kleopatra
-    syncthing
     tsukimi
     onlyoffice-desktopeditors
     cherry-studio
@@ -56,7 +55,7 @@
     winbox4
     rustdesk
     wireguard-tools
-
+    mqttx
     # (callPackage ./../../packages/robrix/package.nix { })
   ];
 

@@ -71,6 +71,7 @@
     gnutar
     openssl
     gnupg
+    ffmpeg
 
     pciutils # lspci
     usbutils # lsusb
