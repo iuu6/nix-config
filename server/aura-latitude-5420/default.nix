@@ -7,6 +7,7 @@
       ./env
       ./..
       ./../../hardware-env/removable/proxmark3
+      ./../../hardware-env/graphics/intel
     ];
   
   networking.hostName = "aura-latitude-5420";
