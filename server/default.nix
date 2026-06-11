@@ -81,6 +81,7 @@
     traceroute
 
     nmap
+    bind
     qemu_full
 
     htop

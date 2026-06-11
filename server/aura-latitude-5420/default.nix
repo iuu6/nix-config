@@ -57,6 +57,8 @@
     rustdesk
     wireguard-tools
     mqttx
+    gns3-gui
+    minicom
     # (callPackage ./../../packages/robrix/package.nix { })
   ];
 
