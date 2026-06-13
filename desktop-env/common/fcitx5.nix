@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  modulesPath,
-  ...
-}:
+{ pkgs, ... }:
 {
   i18n.inputMethod = {
     enable = true;

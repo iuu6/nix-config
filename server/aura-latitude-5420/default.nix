@@ -1,24 +1,23 @@
-{ config, lib, pkgs, ... }:
-
+{ pkgs, ... }:
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./env
-      ./..
-      ./../../hardware-env/removable/proxmark3
-      ./../../hardware-env/graphics/intel
-    ];
-  
+  imports = [
+    ./hardware-configuration.nix
+    ./env
+    ./..
+    ./../../hardware-env/removable/proxmark3
+    ./../../hardware-env/graphics/intel
+  ];
+
   networking.hostName = "aura-latitude-5420";
 
-  # nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   services.pcscd.enable = true;
 
   users.users.aura = {
     isNormalUser = true;
     description = "aura";
-    extraGroups = ["wheel"];
+    extraGroups = [ "wheel" ];
     initialPassword = "pass";
   };
 
@@ -28,12 +27,11 @@
 
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
   };
 
-  # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     telegram-desktop
     spotify
@@ -59,13 +57,10 @@
     mqttx
     gns3-gui
     minicom
-    # (callPackage ./../../packages/robrix/package.nix { })
   ];
 
   services.openwebrx.enable = true;
   hardware.rtl-sdr.enable = true;
 
-  system.stateVersion = "25.11"; # Did you read the comment?
-
+  system.stateVersion = "25.11";
 }
-

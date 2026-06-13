@@ -23,11 +23,13 @@
   ];
 
   # Fix window buttons layout to include minimize and maximize buttons
-  programs.dconf.profiles.user.databases = [{
-    settings = {
-      "org/gnome/desktop/wm/preferences" = {
-        button-layout = "appmenu:minimize,maximize,close";
+  programs.dconf.profiles.user.databases = [
+    {
+      settings = {
+        "org/gnome/desktop/wm/preferences" = {
+          button-layout = "appmenu:minimize,maximize,close";
+        };
       };
-    };
-  }];
+    }
+  ];
 }

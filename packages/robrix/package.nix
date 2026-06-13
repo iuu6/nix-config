@@ -29,7 +29,7 @@ appimageTools.wrapType2 rec {
     homepage = "https://github.com/project-robius/robrix";
     license = lib.licenses.mit;
     mainProgram = "robrix";
-    maintainers = with lib.maintainers; [  ];
+    maintainers = with lib.maintainers; [ ];
     platforms = [ "x86_64-linux" ];
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
   };

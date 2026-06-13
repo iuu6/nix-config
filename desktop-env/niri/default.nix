@@ -10,6 +10,6 @@
     ./..
   ];
   programs.niri.enable = true;
-  
+
   environment.etc."xdg/niri/config.kdl".source = ./config.kdl;
 }

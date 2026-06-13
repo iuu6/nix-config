@@ -1,11 +1,5 @@
+{ ... }:
 {
-  config,
-  lib,
-  pkgs,
-  modulesPath,
-  ...
-}:
-{
-  imports = [
-  ];
+
+  imports = [ ];
 }

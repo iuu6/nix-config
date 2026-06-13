@@ -1,42 +1,38 @@
 {
-  description = "Aura's desktop env";
+  description = "Aura's NixOS configurations";
 
-  nixConfig.trusted-substituters = [
-    "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store?priority=1"
-    "https://cache.nixos.org?priority=10"
-  ];
+  nixConfig = {
+    extra-substituters = [
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+    ];
+    extra-trusted-substituters = [
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+    ];
+  };
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
   };
 
   outputs =
     { nixpkgs, ... }@inputs:
+    let
+      system = "x86_64-linux";
+      hosts = [
+        "aura-latitude-5420"
+        "aura-main-server"
+      ];
+      mkHost =
+        name:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [ (./server + "/${name}") ];
+        };
+    in
     {
-      nixosConfigurations = {
-        aura-latitude-5420 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";     
-          modules = with inputs; [
-            ./server/aura-latitude-5420
+      nixosConfigurations = nixpkgs.lib.genAttrs hosts mkHost;
 
-            # flake-programs-sqlite.nixosModules.programs-sqlite
-            # { system.configurationRevision = self.rev or "dirty"; }
-          ];
-          specialArgs = {
-            inherit inputs;
-          };
-        };
-        aura-main-server = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";     
-          modules = with inputs; [
-            ./server/aura-main-server
-
-            # flake-programs-sqlite.nixosModules.programs-sqlite
-            # { system.configurationRevision = self.rev or "dirty"; }
-          ];
-          specialArgs = {
-            inherit inputs;
-          };
-        };
-      };
+      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
     };
 }

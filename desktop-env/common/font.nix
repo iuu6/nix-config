@@ -1,11 +1,4 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  modulesPath,
-  ...
-}:
+{ pkgs, ... }:
 {
   fonts = {
     fontDir.enable = true;

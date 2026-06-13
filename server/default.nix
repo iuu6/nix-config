@@ -1,35 +1,36 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  modulesPath,
-  ...
-}: 
+{ pkgs, ... }:
 {
   imports = [
     ./../hardware-env/wireless/bluetooth
   ];
-  nix.settings.substituters = [
-    # "https://mirrors.ustc.edu.cn/nix-channels/store"
-    # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-    "https://cache.nixos.org"
-  ];
-  nix.settings.trusted-users = [
-    "root"
-    "@wheel"
-  ];
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+
+  nix.settings = {
+    substituters = [
+      # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+      # "https://mirrors.ustc.edu.cn/nix-channels/store"
+      "https://cache.nixos.org"
+    ];
+    trusted-users = [
+      "root"
+      "@wheel"
+    ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    auto-optimise-store = true;
+    warn-dirty = false;
+  };
+
   nix.gc = {
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 14d";
   };
-
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  nix.optimise = {
+    automatic = true;
+    dates = [ "weekly" ];
+  };
 
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
@@ -38,9 +39,7 @@
   networking.wireless.iwd.enable = true;
   networking.networkmanager.wifi.backend = "iwd";
 
-  boot.supportedFilesystems = [
-    "ntfs"
-  ];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -76,8 +75,8 @@
     pciutils # lspci
     usbutils # lsusb
     smartmontools # smartctl
-    tree #tree
-    inetutils #telnet
+    tree
+    inetutils # telnet
     traceroute
 
     nmap
@@ -93,7 +92,7 @@
     fastfetch
 
     nil
-    nixfmt-classic
+    nixfmt-rfc-style
     nix-output-monitor
   ];
 
@@ -109,5 +108,10 @@
   time.timeZone = "Asia/Shanghai";
 
   services.timesyncd.enable = true;
-  services.timesyncd.servers = [ "ntp.tencent.com" "ntp1.aliyun.com" "ntp.ntsc.ac.cn" "cn.ntp.org.cn" ];
+  services.timesyncd.servers = [
+    "ntp.tencent.com"
+    "ntp1.aliyun.com"
+    "ntp.ntsc.ac.cn"
+    "cn.ntp.org.cn"
+  ];
 }
