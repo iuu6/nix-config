@@ -11,6 +11,11 @@
   # 公网服务器：使用 LTS 内核（6.12 是当前 LTS）
   boot.kernelPackages = pkgs.linuxPackages_6_12;
 
+  # mdadm 监控告警地址（无外发邮件时落到本地 mailbox，避免 mdmon 启动告警）
+  boot.swraid.mdadmConf = ''
+    MAILADDR root@localhost
+  '';
+
   services.pcscd.enable = true;
 
   # Use the systemd-boot EFI boot loader.
