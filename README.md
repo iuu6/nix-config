@@ -52,6 +52,7 @@
       </ul>
     </li>
     <li><a href="#Usage">Usage</a></li>
+    <li><a href="#Justfile Shortcuts">Justfile Shortcuts</a></li>
     <li><a href="#Functional Routes">Functional Routes</a></li>
   </ol>
 </details>
@@ -109,6 +110,45 @@ The Program Environment is similar to the Desktop Environment, so use it as you 
 ## Others
 
 Stay tuned for more features!
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+# Justfile Shortcuts
+
+A `justfile` is included at the repo root to wrap the most common day-to-day commands. It requires [`just`](https://github.com/casey/just) (already pulled in by this config). Every recipe defaults the target host to the output of `hostname`, so on the matching machine you can usually omit the host argument.
+
+Run `just` (or `just --list`) to see every recipe. The most useful ones:
+
+## Rebuild
+
+| Command | What it does |
+| --- | --- |
+| `just switch [host]` | `nixos-rebuild switch` — build, activate, and add a boot entry. |
+| `just test [host]` | `nixos-rebuild test` — activate without writing a boot entry (reverts on reboot). Good for trying risky changes. |
+| `just boot [host]` | `nixos-rebuild boot` — build and stage for next boot, don't activate now. |
+| `just build [host]` | Build the config into `./result` without activating. |
+| `just dry [host]` | Show what *would* be built, without building. |
+| `just diff [host]` | Build and `nvd diff` against the running system (requires `nvd`). |
+
+Example: `just switch aura-main-server` rebuilds the server config from another machine.
+
+## Flake maintenance
+
+| Command | What it does |
+| --- | --- |
+| `just update` | Update every flake input (`nix flake update`). |
+| `just update-input nixpkgs` | Update a single input by name. |
+| `just check` | `nix flake check` — evaluate all outputs and run checks. |
+| `just show` | `nix flake show` — list outputs. |
+| `just fmt` | Format every `*.nix` file with the flake's `formatter` (`nixfmt-rfc-style`). |
+
+## Housekeeping
+
+| Command | What it does |
+| --- | --- |
+| `just gc` | Delete old generations and garbage-collect the store (system + user). |
+| `just generations` | List system generations from the boot menu profile. |
+| `just repl` | Open `nix repl` with this flake already loaded as `inputs`. |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
