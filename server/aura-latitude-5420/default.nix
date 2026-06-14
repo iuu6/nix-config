@@ -32,6 +32,13 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
+  # cherry-studio 依赖 electron-38.8.4，bitwarden-desktop 依赖 electron-39.8.10，
+  # 两者在 nixpkgs 中均已被标记为 insecure，需要显式放行。
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-38.8.4"
+    "electron-39.8.10"
+  ];
+
   environment.systemPackages = with pkgs; [
     telegram-desktop
     spotify

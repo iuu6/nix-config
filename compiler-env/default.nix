@@ -4,6 +4,6 @@
     just
     direnv
     devenv
-    docker
+    docker_29
   ];
 }
