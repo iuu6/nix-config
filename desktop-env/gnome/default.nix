@@ -40,6 +40,19 @@
             "system-monitor-next@paradoxxx.zero.gmail.com"
           ];
         };
+        # Free up keybindings that conflict with PaperWM
+        "org/gnome/desktop/wm/keybindings" = {
+          move-to-monitor-left = [ ];
+          move-to-monitor-right = [ ];
+          move-to-monitor-up = [ ];
+          move-to-monitor-down = [ ];
+          maximize = [ ];
+          unmaximize = [ ];
+        };
+        "org/gnome/mutter/keybindings" = {
+          toggle-tiled-left = [ ];
+          toggle-tiled-right = [ ];
+        };
       };
     }
   ];
