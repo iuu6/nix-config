@@ -42,16 +42,16 @@
         };
         # Free up keybindings that conflict with PaperWM
         "org/gnome/desktop/wm/keybindings" = {
-          move-to-monitor-left = [ ];
-          move-to-monitor-right = [ ];
-          move-to-monitor-up = [ ];
-          move-to-monitor-down = [ ];
-          maximize = [ ];
-          unmaximize = [ ];
+          move-to-monitor-left = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
+          move-to-monitor-right = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
+          move-to-monitor-up = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
+          move-to-monitor-down = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
+          maximize = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
+          unmaximize = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
         };
         "org/gnome/mutter/keybindings" = {
-          toggle-tiled-left = [ ];
-          toggle-tiled-right = [ ];
+          toggle-tiled-left = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
+          toggle-tiled-right = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
         };
       };
     }
