@@ -9,6 +9,7 @@
         fcitx5-rime
         fcitx5-gtk
         fcitx5-nord
+        fcitx5-mozc
         dbus
         qt6Packages.fcitx5-chinese-addons
         kdePackages.fcitx5-qt
