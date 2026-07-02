@@ -21,7 +21,6 @@ let
       python-dotenv
       fastapi
       flask
-      gradio
       openai
       pillow
       opencv-python

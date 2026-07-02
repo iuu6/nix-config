@@ -85,11 +85,10 @@
     lm_sensors
     ethtool
     hyfetch
-    neofetch
     fastfetch
 
     nil
-    nixfmt-rfc-style
+    nixfmt
     nix-output-monitor
   ];
 

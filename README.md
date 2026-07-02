@@ -140,7 +140,7 @@ Example: `just switch aura-main-server` rebuilds the server config from another 
 | `just update-input nixpkgs` | Update a single input by name. |
 | `just check` | `nix flake check` — evaluate all outputs and run checks. |
 | `just show` | `nix flake show` — list outputs. |
-| `just fmt` | Format every `*.nix` file with the flake's `formatter` (`nixfmt-rfc-style`). |
+| `just fmt` | Format every `*.nix` file with the flake's `formatter` (`nixfmt`). |
 
 ## Housekeeping
 
