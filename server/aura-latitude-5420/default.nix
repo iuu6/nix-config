@@ -65,6 +65,7 @@
     mqttx
     gns3-gui
     minicom
+    wine
   ];
 
   services.openwebrx.enable = true;

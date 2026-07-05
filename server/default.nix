@@ -68,6 +68,7 @@
     openssl
     gnupg
     ffmpeg
+    android-tools
 
     pciutils # lspci
     usbutils # lsusb
