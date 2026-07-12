@@ -66,6 +66,10 @@
     gns3-gui
     minicom
     wine
+    protontricks
+    protonplus
+    lumafly
+    minio-client
   ];
 
   services.openwebrx.enable = true;

@@ -22,6 +22,9 @@
     serviceConfig = {
       ExecStart = "${config.programs.clash-verge.package}/bin/clash-verge-service";
       Restart = "on-failure";
+      User = "root";
+      AmbientCapabilities = [ "CAP_NET_ADMIN" "CAP_NET_RAW" "CAP_NET_BIND_SERVICE" ];
+      CapabilityBoundingSet = [ "CAP_NET_ADMIN" "CAP_NET_RAW" "CAP_NET_BIND_SERVICE" ];
     };
     wantedBy = [ "multi-user.target" ];
   };
