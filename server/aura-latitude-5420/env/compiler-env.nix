@@ -1,7 +1,8 @@
 { ... }:
 {
   imports = [
-    ./../../../compiler-env/python313
+    # ./../../../compiler-env/python313
+    ./../../../compiler-env/python
     ./../../../compiler-env/javascript
     ./../../../compiler-env/golang
     ./../../../compiler-env/rust

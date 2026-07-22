@@ -32,14 +32,6 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
-  # cherry-studio 依赖 electron-38.8.4 及 pnpm-10.29.2（构建期 fetcher），
-  # bitwarden-desktop 依赖 electron-39.8.10，均已被标记为 insecure，需要显式放行。
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-38.8.4"
-    "electron-39.8.10"
-    "pnpm-10.29.2"
-  ];
-
   environment.systemPackages = with pkgs; [
     telegram-desktop
     spotify
@@ -74,6 +66,12 @@
 
   services.openwebrx.enable = true;
   hardware.rtl-sdr.enable = true;
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "pnpm-10.29.2"
+    "electron-39.8.10"
+    "electron-40.10.5"
+  ];
 
   system.stateVersion = "26.05";
 }

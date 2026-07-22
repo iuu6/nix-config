@@ -14,18 +14,16 @@
     enable = true;
     package = pkgs.clash-verge-rev;
     autoStart = false;
+    serviceMode = true;
+    tunMode = true;
   };
 
-  systemd.services.clash-verge = {
-    enable = true;
-    description = "Clash Verge Service Mode";
-    serviceConfig = {
-      ExecStart = "${config.programs.clash-verge.package}/bin/clash-verge-service";
-      Restart = "on-failure";
-      User = "root";
-      AmbientCapabilities = [ "CAP_NET_ADMIN" "CAP_NET_RAW" "CAP_NET_BIND_SERVICE" ];
-      CapabilityBoundingSet = [ "CAP_NET_ADMIN" "CAP_NET_RAW" "CAP_NET_BIND_SERVICE" ];
-    };
-    wantedBy = [ "multi-user.target" ];
+  # TUN mode requires IP forwarding to route traffic through the virtual interface
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = true;
+    "net.ipv6.conf.all.forwarding" = true;
   };
+
+  # Trust the mihomo TUN interface (default name "Meta") so firewall doesn't block forwarded packets
+  networking.firewall.trustedInterfaces = [ "Meta" ];
 }
