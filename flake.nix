@@ -20,7 +20,7 @@
       system = "x86_64-linux";
       hosts = [
         "aura-latitude-5420"
-        "aura-main-server"
+        "aura-z4g4"
       ];
       mkHost =
         name:
