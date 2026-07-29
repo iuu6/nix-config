@@ -12,6 +12,11 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # Disable HDA Intel audio power saving to prevent speaker pop/thump on idle
+  boot.extraModprobeConfig = ''
+    options snd_hda_intel power_save=0
+  '';
+
   services.pcscd.enable = true;
 
   users.users.aura = {
