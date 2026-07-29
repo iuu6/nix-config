@@ -9,7 +9,8 @@
     # Quadro P600 is Pascal (GP107GL), does not support open kernel module
     open = false;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    # Quadro P600 (Pascal) is dropped from stable 590+, requires legacy 580.xx
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
   };
 
   hardware.graphics = {
