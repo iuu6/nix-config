@@ -6,7 +6,7 @@
   ...
 }:
 let
-  sdlLibs = with pkgs; [ SDL2 SDL2_mixer SDL2_image SDL2_ttf freetype xorg.libX11 ];
+  sdlLibs = with pkgs; [ SDL2 SDL2_mixer SDL2_image SDL2_ttf freetype libx11 ];
 in
 {
   imports = [
