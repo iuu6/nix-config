@@ -19,11 +19,16 @@
     extraPackages = with pkgs; [
       nvidia-vaapi-driver
     ];
+    extraPackages32 = with pkgs.pkgsi686Linux; [
+      nvidia-vaapi-driver
+    ];
   };
 
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "nvidia";
     NVD_BACKEND = "direct";
+    # Force NVIDIA GLX vendor to avoid Wayland/XWayland lookup failures
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 
   environment.systemPackages = with pkgs; [

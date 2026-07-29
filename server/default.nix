@@ -48,6 +48,9 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+    # Games (SDL, Wine, etc.) need ALSA; without this they crash on audio init
+    alsa.enable = true;
+    alsa.support32Bit = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
