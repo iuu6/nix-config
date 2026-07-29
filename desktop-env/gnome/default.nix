@@ -38,6 +38,7 @@
             "trayIconsReloaded@selfmade.pl"
             "paperwm@paperwm.github.com"
             "system-monitor-next@paradoxxx.zero.gmail.com"
+            "kimpanel@kde.org"
           ];
         };
         # Free up keybindings that conflict with PaperWM
