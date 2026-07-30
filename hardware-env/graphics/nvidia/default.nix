@@ -2,10 +2,6 @@
 {
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  # GDM must use X11 backend — running GDM in Wayland while the GNOME session
-  # uses X11 causes hard GPU hangs under heavy load (gaming) with NVIDIA
-  services.displayManager.gdm.wayland = false;
-
   # PAT gives the driver a faster, stable memory path; without it Quadro P600
   # (2 GB VRAM) can hard-crash the X session when VRAM is saturated by a game
   boot.extraModprobeConfig = ''
