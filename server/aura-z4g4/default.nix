@@ -5,7 +5,9 @@
     ./env
     ./..
     ./../../hardware-env/removable/proxmark3
-    ./../../hardware-env/graphics/nvidia
+    ./../../hardware-env/graphics/nouveau
+    # ./../../hardware-env/graphics/nvidia
+    # ./../../hardware-env/graphics/intel-arc
   ];
 
   networking.hostName = "aura-z4g4";
