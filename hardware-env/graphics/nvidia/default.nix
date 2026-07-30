@@ -4,7 +4,7 @@
 
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement.enable = false;
+    powerManagement.enable = true;
     powerManagement.finegrained = false;
     # Quadro P600 is Pascal (GP107GL), does not support open kernel module
     open = false;
