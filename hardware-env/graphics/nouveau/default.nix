@@ -10,8 +10,6 @@
     enable32Bit = true;
   };
 
-  services.displayManager.gdm.wayland = true;
-
   environment.sessionVariables = {
     # Electron/Chromium apps use native Wayland backend — fixes cursor/canvas flicker
     NIXOS_OZONE_WL = "1";
