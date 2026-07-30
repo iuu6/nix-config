@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   services.xserver.videoDrivers = [ "nouveau" ];
 
@@ -17,18 +17,12 @@
 
   environment.systemPackages = with pkgs; [
     libva-utils
-    nvtopPackages.full
+    lm_sensors
   ];
 
-  # Set nouveau GPU to max performance pstate at boot
-  systemd.services.nouveau-pstate = {
-    description = "Set Nouveau GPU pstate to maximum performance";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "sys-kernel-debug.mount" ];
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-      ExecStart = "${pkgs.bash}/bin/bash -c 'echo 0f > /sys/kernel/debug/dri/0/pstate'";
-    };
-  };
+  # Force max performance pstate at driver init; runtime PM would otherwise downclock idle GPU
+  boot.kernelParams = [ "nouveau.config=NvClkMode=15" ];
+  boot.extraModprobeConfig = lib.mkAfter ''
+    options nouveau runpm=0
+  '';
 }
