@@ -24,7 +24,7 @@
   users.users.aura = {
     isNormalUser = true;
     description = "aura";
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "video" "render" ];
     initialPassword = "pass";
   };
 

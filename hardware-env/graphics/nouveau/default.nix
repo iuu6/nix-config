@@ -24,11 +24,11 @@
   systemd.services.nouveau-pstate = {
     description = "Set Nouveau GPU pstate to maximum performance";
     wantedBy = [ "multi-user.target" ];
-    after = [ "systemd-udev-settle.service" ];
+    after = [ "sys-kernel-debug.mount" ];
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;
-      ExecStart = "${pkgs.bash}/bin/bash -c 'echo 0f > /sys/class/drm/card0/device/pstate'";
+      ExecStart = "${pkgs.bash}/bin/bash -c 'echo 0f > /sys/kernel/debug/dri/0/pstate'";
     };
   };
 }
