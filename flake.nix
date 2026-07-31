@@ -21,6 +21,8 @@
       hosts = [
         "aura-latitude-5420"
         "aura-z4g4"
+        "aura-main-data"
+        "aura-main-docker-server"
       ];
       mkHost =
         name:
