@@ -2,6 +2,6 @@
 {
   imports = [
     ./../../../desktop-env/gnome
-    ./../../../desktop-env/onlyoffice.nix
+    ./../../../desktop-env/onlyoffice
   ];
 }
