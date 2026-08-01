@@ -10,4 +10,5 @@
     ./..
   ];
   environment.systemPackages = with pkgs; [ go ];
+  environment.variables.CGO_ENABLED = "0";
 }
