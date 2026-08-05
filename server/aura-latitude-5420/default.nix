@@ -6,8 +6,8 @@
     ./..
     ./../../hardware-env/removable/proxmark3
     ./../../hardware-env/graphics/intel
-    ./../../desktop-env/spotify.nix
-    ./../../desktop-env/steam.nix
+    ./../../desktop-env/spotify
+    ./../../desktop-env/steam
   ];
 
   networking.hostName = "aura-latitude-5420";

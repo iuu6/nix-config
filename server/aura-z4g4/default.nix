@@ -8,8 +8,8 @@
     # ./../../hardware-env/graphics/nouveau
     # ./../../hardware-env/graphics/nvidia
     ./../../hardware-env/graphics/intel-arc
-    ./../../desktop-env/spotify.nix
-    ./../../desktop-env/steam.nix
+    ./../../desktop-env/spotify
+    ./../../desktop-env/steam
   ];
 
   networking.hostName = "aura-z4g4";

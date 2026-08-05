@@ -86,6 +86,7 @@
 
     htop
     btop
+    glances
     lm_sensors
     ethtool
     hyfetch
