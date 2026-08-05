@@ -8,6 +8,8 @@
     # ./../../hardware-env/graphics/nouveau
     # ./../../hardware-env/graphics/nvidia
     ./../../hardware-env/graphics/intel-arc
+    ./../../desktop-env/spotify.nix
+    ./../../desktop-env/steam.nix
   ];
 
   networking.hostName = "aura-z4g4";
@@ -32,16 +34,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
-
   environment.systemPackages = with pkgs; [
     telegram-desktop
-    spotify
     _64gram
     typora
     kdePackages.kleopatra
@@ -64,9 +58,6 @@
     mqttx
     gns3-gui
     minicom
-    wine
-    protontricks
-    protonplus
     lumafly
     minio-client
   ];

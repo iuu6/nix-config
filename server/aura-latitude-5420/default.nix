@@ -6,6 +6,8 @@
     ./..
     ./../../hardware-env/removable/proxmark3
     ./../../hardware-env/graphics/intel
+    ./../../desktop-env/spotify.nix
+    ./../../desktop-env/steam.nix
   ];
 
   networking.hostName = "aura-latitude-5420";
@@ -25,16 +27,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
-
   environment.systemPackages = with pkgs; [
     telegram-desktop
-    spotify
     _64gram
     typora
     kdePackages.kleopatra
@@ -57,9 +51,6 @@
     mqttx
     gns3-gui
     minicom
-    wine
-    protontricks
-    protonplus
     lumafly
     minio-client
   ];
