@@ -28,5 +28,6 @@
     libva-utils
     intel-gpu-tools
     clinfo
+    nvtopPackages.intel
   ];
 }
