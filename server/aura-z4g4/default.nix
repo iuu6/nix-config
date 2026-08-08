@@ -1,5 +1,11 @@
 { pkgs, ... }:
 {
+  nixpkgs.overlays = [
+    (final: _: {
+      cogfly = final.callPackage ../../packages/cogfly/package.nix { };
+    })
+  ];
+
   imports = [
     ./hardware-configuration.nix
     ./env
@@ -60,6 +66,7 @@
     minicom
     lumafly
     minio-client
+    cogfly
   ];
 
   services.openwebrx.enable = true;
