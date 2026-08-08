@@ -29,6 +29,11 @@
 
   services.pcscd.enable = true;
 
+  # Enable wakeup from S3 suspend for all USB controllers and hubs
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="usb", ATTR{power/wakeup}="enabled"
+  '';
+
   users.users.aura = {
     isNormalUser = true;
     description = "aura";

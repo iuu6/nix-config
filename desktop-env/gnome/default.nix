@@ -54,6 +54,10 @@
           toggle-tiled-left = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
           toggle-tiled-right = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
         };
+        "org/gnome/settings-daemon/plugins/power" = {
+          sleep-inactive-ac-timeout = 3600;
+          sleep-inactive-battery-timeout = 3600;
+        };
       };
     }
   ];
