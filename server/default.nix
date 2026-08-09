@@ -35,6 +35,11 @@
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+
   networking.networkmanager.enable = true;
   networking.wireless.iwd.enable = true;
   networking.networkmanager.wifi.backend = "iwd";
