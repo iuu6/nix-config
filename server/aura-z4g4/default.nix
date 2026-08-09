@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   nixpkgs.overlays = [
     (final: _: {
@@ -76,10 +76,6 @@
 
   services.openwebrx.enable = true;
   hardware.rtl-sdr.enable = true;
-
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "davinci-resolve-studio"
-  ];
 
   nixpkgs.config.permittedInsecurePackages = [
     "pnpm-10.29.2"
