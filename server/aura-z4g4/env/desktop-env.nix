@@ -1,12 +1,8 @@
-{ config, lib, ... }:
-let
-  davinci-path = ./../../../desktop-env/davinci-studio;
-in
+{ inputs, ... }:
 {
   imports = [
     ./../../../desktop-env/gnome
     ./../../../desktop-env/onlyoffice
-  ] ++ lib.optionals (builtins.pathExists davinci-path) [
-    davinci-path
+    (inputs.private + "/desktop-env/davinci-studio")
   ];
 }

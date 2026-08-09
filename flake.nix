@@ -13,6 +13,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    private = {
+      url = "git+ssh://git@github.com/iuu6/nix-private";
+      flake = false;
+    };
   };
 
   outputs =
