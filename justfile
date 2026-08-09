@@ -5,15 +5,15 @@ default:
 
 # Rebuild and switch to new configuration
 switch host=host:
-    sudo nixos-rebuild switch --flake .#{{host}}
+    sudo nixos-rebuild switch --flake .#{{host}} --no-update-lock-file
 
 # Build and activate without adding boot entry (revert on reboot)
 test host=host:
-    sudo nixos-rebuild test --flake .#{{host}}
+    sudo nixos-rebuild test --flake .#{{host}} --no-update-lock-file
 
 # Build and add boot entry, but don't activate now
 boot host=host:
-    sudo nixos-rebuild boot --flake .#{{host}}
+    sudo nixos-rebuild boot --flake .#{{host}} --no-update-lock-file
 
 # Build without activating
 build host=host:
@@ -25,11 +25,11 @@ dry host=host:
 
 # Update all flake inputs
 update:
-    nix flake update
+    SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) nix flake update
 
 # Update a single input, e.g. `just update-input nixpkgs`
 update-input input:
-    nix flake update {{input}}
+    SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) nix flake update {{input}}
 
 # Format all nix files
 fmt:
