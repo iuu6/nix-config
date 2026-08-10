@@ -14,6 +14,7 @@
     # ./../../hardware-env/graphics/nouveau
     # ./../../hardware-env/graphics/nvidia
     ./../../hardware-env/graphics/intel-arc
+    ./../../hardware-env/display/ddcutil
     ./../../desktop-env/spotify
     ./../../desktop-env/steam
   ];

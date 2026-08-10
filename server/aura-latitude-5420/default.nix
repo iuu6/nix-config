@@ -6,6 +6,7 @@
     ./..
     ./../../hardware-env/removable/proxmark3
     ./../../hardware-env/graphics/intel
+    ./../../hardware-env/display/ddcutil
     ./../../desktop-env/spotify
     ./../../desktop-env/steam
   ];

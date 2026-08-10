@@ -22,6 +22,7 @@
     gnomeExtensions.tray-icons-reloaded
     gnomeExtensions.paperwm
     gnomeExtensions.system-monitor-next
+    gnomeExtensions.brightness-control-using-ddcutil
   ];
 
   # Fix window buttons layout to include minimize and maximize buttons
@@ -39,6 +40,7 @@
             "paperwm@paperwm.github.com"
             "system-monitor-next@paradoxxx.zero.gmail.com"
             "kimpanel@kde.org"
+            "display-brightness-ddcutil@themightydeity.github.com"
           ];
         };
         # Free up keybindings that conflict with PaperWM

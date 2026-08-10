@@ -5,23 +5,23 @@ default:
 
 # Rebuild and switch to new configuration
 switch host=host:
-    sudo nixos-rebuild switch --flake .#{{host}} --no-update-lock-file
+    sudo env SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) nixos-rebuild switch --flake .#{{host}} --no-update-lock-file
 
 # Build and activate without adding boot entry (revert on reboot)
 test host=host:
-    sudo nixos-rebuild test --flake .#{{host}} --no-update-lock-file
+    sudo env SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) nixos-rebuild test --flake .#{{host}} --no-update-lock-file
 
 # Build and add boot entry, but don't activate now
 boot host=host:
-    sudo nixos-rebuild boot --flake .#{{host}} --no-update-lock-file
+    sudo env SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) nixos-rebuild boot --flake .#{{host}} --no-update-lock-file
 
 # Build without activating
 build host=host:
-    nixos-rebuild build --flake .#{{host}}
+    SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) nixos-rebuild build --flake .#{{host}}
 
 # Dry-run: show what would be built
 dry host=host:
-    nixos-rebuild dry-build --flake .#{{host}}
+    SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) nixos-rebuild dry-build --flake .#{{host}}
 
 # Update all flake inputs
 update:
@@ -37,11 +37,11 @@ fmt:
 
 # Validate the flake
 check:
-    nix flake check
+    SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) nix flake check
 
 # Show flake outputs
 show:
-    nix flake show
+    SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) nix flake show
 
 # Garbage-collect old generations and store paths
 gc:
@@ -54,7 +54,7 @@ generations:
 
 # Diff current system vs a freshly built one
 diff host=host:
-    nixos-rebuild build --flake .#{{host}}
+    SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) nixos-rebuild build --flake .#{{host}}
     nvd diff /run/current-system ./result
 
 # Open a nix repl with this flake loaded
