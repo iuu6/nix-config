@@ -20,6 +20,10 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
+  networking.firewall.allowedUDPPorts = [
+    7777 # SCP:SL Dedicated Server
+  ];
+
   environment.systemPackages = with pkgs; [
     wine
     protontricks
