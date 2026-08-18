@@ -3,6 +3,7 @@
   nixpkgs.overlays = [
     (final: _: {
       cogfly = final.callPackage ../../packages/cogfly/package.nix { };
+      soundux = final.callPackage ../../packages/soundux/package.nix { };
     })
   ];
 
@@ -73,6 +74,7 @@
     lumafly
     minio-client
     cogfly
+    soundux
   ];
 
   services.openwebrx.enable = true;
