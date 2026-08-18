@@ -7,10 +7,10 @@
 }:
 let
   pname = "cogfly";
-  version = "1.1.2";
+  version = "1.2.4";
   src = fetchurl {
     url = "https://github.com/Nix-main/Cogfly/releases/download/${version}/Cogfly-${version}.AppImage";
-    hash = "sha256-oyUG3L4DoK8z79rnvsjwgFEoSo3rzQwvlg49lyeLCqg=";
+    hash = "sha256-dFskpInqs0ocAjwA8XjGUyh9xpawrcYDJj8nFqGnyFI=";
   };
   icon = fetchurl {
     url = "https://raw.githubusercontent.com/Nix-main/Cogfly/master/resources/icons/icon.png";
