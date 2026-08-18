@@ -74,6 +74,7 @@
     lumafly
     minio-client
     cogfly
+    motrix-next
     soundux
   ];
 
