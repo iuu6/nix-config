@@ -36,6 +36,13 @@ appimageTools.wrapType2 {
     libxtst
   ];
 
+  # Cogfly's Swing UI (FlatLaf) mis-renders under GNOME's fractional (1.5x)
+  # scaling on Wayland/XWayland, clipping toolbar buttons. Forcing an integer
+  # UI scale works around it.
+  extraPreBwrapCmds = ''
+    export _JAVA_OPTIONS="-Dsun.java2d.uiScale=2''${_JAVA_OPTIONS:+ $_JAVA_OPTIONS}"
+  '';
+
   extraInstallCommands = ''
     install -Dm444 ${icon} $out/share/icons/hicolor/256x256/apps/cogfly.png
     install -Dm444 ${desktopItem} $out/share/applications/cogfly.desktop
