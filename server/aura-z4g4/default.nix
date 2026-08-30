@@ -18,6 +18,7 @@
     ./../../hardware-env/display/ddcutil
     ./../../desktop-env/spotify
     ./../../desktop-env/steam
+    ./../../network-env/winbox
   ];
 
   networking.hostName = "aura-z4g4";
@@ -65,7 +66,6 @@
     discord
     parsec-bin
     kdePackages.kolourpaint
-    winbox4
     # rustdesk
     wireguard-tools
     mqttx
