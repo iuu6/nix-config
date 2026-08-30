@@ -66,7 +66,7 @@
     discord
     parsec-bin
     kdePackages.kolourpaint
-    # rustdesk
+    rustdesk
     wireguard-tools
     mqttx
     gns3-gui
