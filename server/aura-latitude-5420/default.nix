@@ -7,6 +7,7 @@
     ./../../hardware-env/removable/proxmark3
     ./../../hardware-env/graphics/intel
     ./../../hardware-env/display/ddcutil
+    ./../../hardware-env/firmware/fwupd
     ./../../desktop-env/spotify
     ./../../desktop-env/steam
     ./../../network-env/winbox

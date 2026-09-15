@@ -19,6 +19,7 @@
     ./../../desktop-env/spotify
     ./../../desktop-env/steam
     ./../../network-env/winbox
+    ./../../hardware-env/firmware/fwupd
   ];
 
   networking.hostName = "aura-z4g4";
