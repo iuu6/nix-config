@@ -13,6 +13,13 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
+  # GNOME's own gcr-ssh-agent competes with gpg-agent's SSH support
+  # (programs.gnupg.agent.enableSSHSupport in server/default.nix) for
+  # SSH_AUTH_SOCK, and wins for GUI-launched apps (e.g. VS Code) since it
+  # overrides the session env after login. Disable it so gpg-agent stays
+  # the sole SSH agent.
+  services.gnome.gcr-ssh-agent.enable = false;
+
   # Enable fcitx5 autostart for GNOME
   services.desktopManager.gnome.sessionPath = [ config.i18n.inputMethod.package ];
 
