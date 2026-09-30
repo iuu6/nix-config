@@ -9,5 +9,5 @@
   imports = [
     ./..
   ];
-  environment.systemPackages = with pkgs; [ dbeaver-bin mongodb-tools mongodb ];
+  environment.systemPackages = with pkgs; [ dbeaver-bin mongodb-tools mongosh ];
 }
