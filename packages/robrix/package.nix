@@ -6,11 +6,11 @@
 }:
 appimageTools.wrapType2 rec {
   pname = "robrix";
-  version = "v0.0.1-pre-alpha-4";
+  version = "v1.0.0-beta.5";
 
   src = fetchurl {
-    url = "https://github.com/project-robius/robrix/releases/download/v0.0.1-pre-alpha-4/robrix_0.0.1-pre-alpha-4_x86_64.AppImage";
-    hash = "sha256-blclfMCl7ddhJH1nC3C0qv2pHK1h83dk69gaonydJwg=";
+    url = "https://github.com/project-robius/robrix/releases/download/${version}/robrix-${lib.removePrefix "v" version}-x86_64.AppImage";
+    hash = "sha256-CPuyxVV/6zTedGTnvdDVPDvPvgDTSUSe0h594pExOrI=";
   };
 
   extraInstallCommands =
