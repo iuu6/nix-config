@@ -19,6 +19,10 @@
 
   services.pcscd.enable = true;
 
+  # Closing the lid should do nothing (no suspend, no lock).
+  # Lock manually with Super+L.
+  # services.logind.settings.Login.HandleLidSwitch = "ignore";
+
   users.users.aura = {
     isNormalUser = true;
     description = "aura";
