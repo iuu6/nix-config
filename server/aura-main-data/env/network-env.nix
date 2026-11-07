@@ -2,7 +2,7 @@
 {
   imports = [  ];
 
-  # 固定 IP。原先走 DHCP，这里照抄其租约值，IP/网关/DNS 全部不变。
+  # 固定 IP。原 DHCP 租约 .126，现固定为 .4；网关/DNS 不变。
   networking.networkmanager.ensureProfiles.profiles.ens160-static = {
     connection = {
       id = "ens160-static";
@@ -13,7 +13,7 @@
     };
     ipv4 = {
       method = "manual";
-      address1 = "10.59.73.126/24,10.59.73.1";
+      address1 = "10.59.73.4/24,10.59.73.1";
       dns = "223.5.5.5;";
     };
   };
