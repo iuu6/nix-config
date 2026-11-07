@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ./env
     ./docker.nix
+    ./sync.nix
     ./..
   ];
 
