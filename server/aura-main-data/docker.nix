@@ -31,7 +31,7 @@
 
       vaultwarden = {
         image = "vaultwarden/server:latest";
-        ports = [ "23301:80" ];
+        ports = [ "23300:80" ];
         volumes = [ "/mnt/main-data/docker/vw-data:/data" ];
         environment = {
           TZ = "Asia/Shanghai";
@@ -46,5 +46,5 @@
   systemd.services."docker-mtphotos".unitConfig.RequiresMountsFor = "/mnt/main-data/docker/mtphotos";
   systemd.services."docker-vaultwarden".unitConfig.RequiresMountsFor = "/mnt/main-data/docker/vw-data";
 
-  networking.firewall.allowedTCPPorts = [ 8063 23301 ];
+  networking.firewall.allowedTCPPorts = [ 8063 23300 ];
 }
