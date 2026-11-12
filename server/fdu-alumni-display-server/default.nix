@@ -42,7 +42,9 @@
     };
   };
 
-  # RustDesk 客户端 + 常驻服务，便于无人值守远程接入图形会话
+  # RustDesk 客户端 + 常驻服务，便于无人值守远程接入图形会话。
+  # Chrome 已由 desktop-env/common/useful.nix 提供（带 Wayland 原生启动参数），
+  # 这里不再重复安装，避免 /run/current-system/sw/bin/google-chrome 冲突。
   environment.systemPackages = with pkgs; [
     rustdesk
   ];
@@ -59,6 +61,23 @@
       RestartSec = 5;
     };
   };
+
+  # GNOME 原生 RDP（Wayland，Windows mstsc 可直接连接）。
+  # GNOME 模块默认已启用，这里显式写出便于查找。
+  #
+  # 首次使用需要在已登录的 GNOME 会话里配置（二选一）：
+  #   图形界面：设置 → 系统 → 远程桌面，开启并设置用户名/密码
+  #   命令行：  grdctl rdp enable
+  #             grdctl rdp set-credentials <用户名> <密码>
+  # 无本地登录/无显示器场景可用 headless 模式：
+  #             grdctl --headless rdp enable
+  #             grdctl --headless rdp set-credentials <用户名> <密码>
+  #
+  # RDP 仍是密码认证，不支持 SSH 密钥。密钥方案是 SSH 隧道：
+  #   ssh -L 3389:127.0.0.1:3389 aura@<server>
+  # 然后 RDP 客户端连 127.0.0.1:3389（3389 默认不对外开放）。
+  # 若要客户端直连，再把 3389 加入 networking.firewall.allowedTCPPorts。
+  services.gnome.gnome-remote-desktop.enable = true;
 
   # 如果这台机器还要充当 RustDesk 中继（hbbs/hbbr），取消下面两行注释。
   # 仅作为被控端时不需要，客户端只主动向外连接。
