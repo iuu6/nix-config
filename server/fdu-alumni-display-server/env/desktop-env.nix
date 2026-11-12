@@ -1,0 +1,6 @@
+{ ... }:
+{
+  imports = [
+    ./../../../desktop-env/gnome
+  ];
+}

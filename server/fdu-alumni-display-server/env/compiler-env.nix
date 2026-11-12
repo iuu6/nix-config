@@ -1,0 +1,6 @@
+{ ... }:
+{
+  imports = [
+    ./../../../compiler-env/javascript
+  ];
+}

@@ -28,6 +28,7 @@
         "aura-z4g4"
         "aura-main-data"
         "aura-main-docker-server"
+        "fdu-alumni-display-server"
       ];
       mkHost =
         name:
