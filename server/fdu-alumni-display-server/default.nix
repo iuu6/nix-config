@@ -42,26 +42,6 @@
     };
   };
 
-  # RustDesk 客户端 + 常驻服务，便于无人值守远程接入图形会话。
-  # Chrome 已由 desktop-env/common/useful.nix 提供（带 Wayland 原生启动参数），
-  # 这里不再重复安装，避免 /run/current-system/sw/bin/google-chrome 冲突。
-  environment.systemPackages = with pkgs; [
-    rustdesk
-  ];
-
-  systemd.services.rustdesk = {
-    description = "RustDesk remote desktop service";
-    wantedBy = [ "multi-user.target" ];
-    wants = [ "network-online.target" ];
-    after = [ "network-online.target" ];
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.rustdesk}/bin/rustdesk --service";
-      Restart = "on-failure";
-      RestartSec = 5;
-    };
-  };
-
   # GNOME 原生 RDP（Wayland，Windows mstsc 可直接连接）。
   # GNOME 模块默认已启用，这里显式写出便于查找。
   #
