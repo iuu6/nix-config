@@ -4,9 +4,15 @@
     ./hardware-configuration.nix
     ./env
     ./..
+    # UGREEN AIC8800 USB 无线网卡（a69c:8d80）的树外驱动。
+    ./../../hardware-env/wireless/aic8800
   ];
 
   networking.hostName = "fdu-alumni-display-server";
+
+  environment.systemPackages = with pkgs; [
+    onlyoffice-desktopeditors
+  ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -58,6 +64,9 @@
   # 然后 RDP 客户端连 127.0.0.1:3389（3389 默认不对外开放）。
   # 若要客户端直连，再把 3389 加入 networking.firewall.allowedTCPPorts。
   services.gnome.gnome-remote-desktop.enable = true;
+
+  # 允许局域网内 Windows mstsc 直连 GNOME RDP（3389）。
+  networking.firewall.allowedTCPPorts = [ 3389 ];
 
   # 如果这台机器还要充当 RustDesk 中继（hbbs/hbbr），取消下面两行注释。
   # 仅作为被控端时不需要，客户端只主动向外连接。
