@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ./env
     ./backup.nix
+    ./alumni-server.nix
     ./..
     # UGREEN AIC8800 USB 无线网卡（a69c:8d80）的树外驱动。
     ./../../hardware-env/wireless/aic8800
