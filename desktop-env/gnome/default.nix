@@ -39,6 +39,18 @@
   # page appear.
   systemd.services."gnome-remote-desktop".wantedBy = [ "graphical.target" ];
 
+  # The Settings "Remote Login" switch makes the configuration daemon enable
+  # the system unit via pkexec. Two NixOS-specific issues have to be worked
+  # around here:
+  #  1. system services inherit systemd's ManagerEnvironment PATH, which does
+  #     not contain /run/wrappers/bin, so pkexec was not found.
+  #  2. systemd sets SHELL to the user's nologin, but pkexec rejects a $SHELL
+  #     that is not listed in /etc/shells. Override it with a valid shell.
+  systemd.services."gnome-remote-desktop-configuration".environment = {
+    PATH = lib.mkForce "/run/wrappers/bin:${config.system.path}/bin";
+    SHELL = "/run/current-system/sw/bin/bash";
+  };
+
   # Install GNOME extensions for system tray support and tiling window management
   environment.systemPackages = with pkgs; [
     gnomeExtensions.appindicator
@@ -79,7 +91,22 @@
           toggle-tiled-left = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
           toggle-tiled-right = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
         };
+        # GNOME 50 raises the screen shield on idle even with lock-enabled
+        # false, which switches to the "unlock-dialog" session mode and makes
+        # mutter inhibit remote access ("Session creation inhibited" for GNOME
+        # RDP). Disable idle blanking entirely so RDP stays available; power
+        # the monitor off manually if needed.
+        "org/gnome/desktop/session" = {
+          idle-delay = lib.gvariant.mkUint32 0;
+        };
+        "org/gnome/desktop/screensaver" = {
+          lock-enabled = false;
+          idle-activation-enabled = false;
+        };
         "org/gnome/settings-daemon/plugins/power" = {
+          # Idle suspend would also make SSH/RDP unreachable.
+          sleep-inactive-ac-type = "nothing";
+          sleep-inactive-battery-type = "nothing";
           sleep-inactive-ac-timeout = lib.gvariant.mkInt32 3600;
           sleep-inactive-battery-timeout = lib.gvariant.mkInt32 3600;
         };
