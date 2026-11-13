@@ -1,23 +1,28 @@
 {
   lib,
   stdenv,
-  fetchFromGitHub,
   kernel,
+  src,
+  firmwarePath,
 }:
 
 stdenv.mkDerivation {
   pname = "aic8800";
-  version = "${kernel.version}-unstable-2026-11-13";
+  version = "${kernel.version}-unstable-2026-11-12";
 
-  src = fetchFromGitHub {
-    owner = "shenmintao";
-    repo = "aic8800d80";
-    rev = "2c2e67097016521f21c8916d1b914e21eb24e306";
-    hash = "sha256-0R5trW6hf/JsU31ijlmEcuNraPVfenXzKqpkl1/aVxc=";
-  };
+  inherit src;
 
   # Kernel modules must not be built with -fPIC.
   hardeningDisable = [ "pic" ];
+
+  # aic_load_fw reads firmware with filp_open() and hardcodes /lib/firmware.
+  # NixOS has no /lib/firmware, and the copy in /run/current-system/firmware is
+  # zstd-compressed, which filp_open() cannot read. Point the driver at the
+  # uncompressed firmware tree instead.
+  postPatch = ''
+    substituteInPlace drivers/aic8800/aic_load_fw/aicbluetooth.c \
+      --replace-fail '"/lib/firmware"' '"${firmwarePath}"'
+  '';
 
   nativeBuildInputs = kernel.moduleBuildDependencies;
 
