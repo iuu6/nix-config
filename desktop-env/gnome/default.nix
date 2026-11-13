@@ -20,8 +20,24 @@
   # the sole SSH agent.
   services.gnome.gcr-ssh-agent.enable = false;
 
-  # Enable fcitx5 autostart for GNOME
-  services.desktopManager.gnome.sessionPath = [ config.i18n.inputMethod.package ];
+  # Enable fcitx5 autostart for GNOME.
+  # gnome-remote-desktop also goes here: the GNOME module prepends each
+  # sessionPath package's share/gsettings-schemas/<name> to XDG_DATA_DIRS,
+  # which is required by the Settings "Remote Desktop" page
+  # (org.gnome.desktop.remote-desktop.rdp schema). Without it the page
+  # cannot be opened even when it is visible.
+  services.desktopManager.gnome.sessionPath = [
+    config.i18n.inputMethod.package
+    pkgs.gnome-remote-desktop
+  ];
+
+  # GNOME 50's Settings only shows System → Remote Desktop when the
+  # system-level gnome-remote-desktop.service is "enabled" or "disabled".
+  # NixOS installs the unit via systemd.packages as a plain symlink, so
+  # systemd reports it as "linked" and Settings hides the page entirely.
+  # Enabling it (the upstream default via [Install] WantedBy) makes the
+  # page appear.
+  systemd.services."gnome-remote-desktop".wantedBy = [ "graphical.target" ];
 
   # Install GNOME extensions for system tray support and tiling window management
   environment.systemPackages = with pkgs; [
