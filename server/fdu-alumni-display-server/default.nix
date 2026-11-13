@@ -19,9 +19,9 @@
     enable32Bit = true;
   };
 
-  users.users.aura = {
+  users.users.fdu-alumni = {
     isNormalUser = true;
-    description = "aura";
+    description = "fdu-alumni";
     extraGroups = [ "wheel" ];
     # 仅用于本地控制台登录和 sudo；SSH 已禁用密码认证。
     # 首次装机后请立即用 passwd 修改。
@@ -54,7 +54,7 @@
   #             grdctl --headless rdp set-credentials <用户名> <密码>
   #
   # RDP 仍是密码认证，不支持 SSH 密钥。密钥方案是 SSH 隧道：
-  #   ssh -L 3389:127.0.0.1:3389 aura@<server>
+  #   ssh -L 3389:127.0.0.1:3389 fdu-alumni@<server>
   # 然后 RDP 客户端连 127.0.0.1:3389（3389 默认不对外开放）。
   # 若要客户端直连，再把 3389 加入 networking.firewall.allowedTCPPorts。
   services.gnome.gnome-remote-desktop.enable = true;
@@ -67,7 +67,7 @@
   # 展示机若需要开机直接进入 GNOME 桌面，取消下面注释。
   # services.displayManager.autoLogin = {
   #   enable = true;
-  #   user = "aura";
+  #   user = "fdu-alumni";
   # };
 
   boot.loader.systemd-boot.enable = true;
