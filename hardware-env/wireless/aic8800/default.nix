@@ -35,4 +35,14 @@ in
   # Still expose the firmware through the normal kernel path for the parts of
   # the driver that use request_firmware().
   hardware.firmware = [ firmware ];
+
+  # On cold boot / power loss the adapter comes back up as a USB mass-storage
+  # device (a69c:5724 "Aic MSC") exposing its firmware partition, not in Wi-Fi
+  # mode (a69c:8d80). Ejecting that SCSI disk makes it switch modes; without
+  # this the driver never probes and there is no wlan interface. This mirrors
+  # the upstream aic.rules. Add more 0x572x product IDs here for other AIC
+  # mass-storage revisions.
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="block", ENV{DEVTYPE}=="disk", KERNEL=="sd*", ATTRS{idVendor}=="a69c", ATTRS{idProduct}=="5724", RUN+="${pkgs.util-linux}/bin/eject /dev/%k"
+  '';
 }
