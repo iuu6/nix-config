@@ -66,7 +66,11 @@
   services.gnome.gnome-remote-desktop.enable = true;
 
   # 允许局域网内 Windows mstsc 直连 GNOME RDP（3389）。
-  networking.firewall.allowedTCPPorts = [ 3389 ];
+  networking.firewall.allowedTCPPorts = [
+    3389 # GNOME RDP
+    30001 # alumni-server HTTP
+    30002 # alumni-server WebSocket
+  ];
 
   # 如果这台机器还要充当 RustDesk 中继（hbbs/hbbr），取消下面两行注释。
   # 仅作为被控端时不需要，客户端只主动向外连接。
